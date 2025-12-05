@@ -2,7 +2,7 @@
 set -e  # Stop on error
 
 # Check if we are in the sd-scripts folder
-if [ ! -d "venv" ] || [ ! -f "flux_train_network.py" ]; then
+if [ ! -f "flux_train_network.py" ]; then
     echo "❌ Error: Run this script from the sd-scripts folder!"
     echo "   cd sd-scripts && ./train.sh"
     exit 1
@@ -13,8 +13,8 @@ echo "===            Starting Chroma1-HD LoRA Training                     ==="
 echo "========================================================================="
 echo ""
 
-# Activate virtual environment
-source ./venv/bin/activate
+# Activate virtual environment (venv is in parent chroma-trainer directory)
+source ../venv/bin/activate
 
 # Disable tokenizers warning
 export TOKENIZERS_PARALLELISM=false
@@ -30,6 +30,16 @@ if [ "$IMAGE_COUNT" -eq 0 ]; then
 fi
 
 echo "✓ Found $IMAGE_COUNT images in dataset"
+echo ""
+
+# Download models if not present
+echo "📦 Checking/downloading models..."
+python3 ../download_models.py || {
+    echo "❌ Failed to download models!"
+    exit 1
+}
+echo ""
+
 echo "✓ Starting training..."
 echo ""
 

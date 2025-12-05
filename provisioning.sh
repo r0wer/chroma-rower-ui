@@ -39,6 +39,7 @@ fi
 echo "Injecting custom configurations..."
 cp configs/train.sh sd-scripts/train.sh
 chmod +x sd-scripts/train.sh
+chmod +x start_ui.sh
 
 mkdir -p sd-scripts/workspace
 cp configs/lora_config.toml sd-scripts/workspace/lora_config.toml

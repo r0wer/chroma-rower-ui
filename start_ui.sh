@@ -18,7 +18,8 @@ source venv/bin/activate
 echo "Installing backend dependencies..."
 pip install -r web_app/requirements.txt
 
-# Start the backend server on port 18675 (same pattern as Ostris AI Toolkit)
-echo "Starting FastAPI server on port 18675..."
-python3 -m uvicorn web_app.backend.main:app --host 0.0.0.0 --port 18675
+# Start the backend server on port 8675
+# Caddy (on 18675) proxies to this port based on PORTAL_CONFIG format: host:proxy_port:app_port:path:label
+echo "Starting FastAPI server on port 8675..."
+python3 -m uvicorn web_app.backend.main:app --host 0.0.0.0 --port 8675
 
