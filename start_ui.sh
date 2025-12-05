@@ -18,8 +18,7 @@ source venv/bin/activate
 echo "Installing backend dependencies..."
 pip install -r web_app/requirements.txt
 
-# Start the backend server
-echo "Starting FastAPI server on port 1111..."
-# Start the backend server on port 8080
-# OPEN_BUTTON_PORT=8080 will make Vast.ai's "OPEN" button go directly to our app
-python3 -m uvicorn web_app.backend.main:app --host 0.0.0.0 --port 8080 --reload
+# Start the backend server on port 18675 (same pattern as Ostris AI Toolkit)
+echo "Starting FastAPI server on port 18675..."
+python3 -m uvicorn web_app.backend.main:app --host 0.0.0.0 --port 18675
+
