@@ -20,6 +20,6 @@ pip install -r web_app/requirements.txt
 
 # Start the backend server
 echo "Starting FastAPI server on port 1111..."
-# Start the backend server
-# We use port 1111 to match the standard "Instance Portal" port on Vast.ai templates (like Ostris)
-python3 -m uvicorn web_app.backend.main:app --host 0.0.0.0 --port 1111 --reload
+# Start the backend server on port 8080
+# OPEN_BUTTON_PORT=8080 will make Vast.ai's "OPEN" button go directly to our app
+python3 -m uvicorn web_app.backend.main:app --host 0.0.0.0 --port 8080 --reload
