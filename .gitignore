@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Node.js
+node_modules/
+dist/
+.DS_Store
+
+# SD-Scripts (cloned at runtime)
+sd-scripts/
+
+# Ignore large model files if they are in workspace root (optional)
+*.safetensors
+*.ckpt

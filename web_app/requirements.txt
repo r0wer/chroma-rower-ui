@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+websockets
+python-multipart
+psutil
+GPUtil
