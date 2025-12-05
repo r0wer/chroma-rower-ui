@@ -8,7 +8,9 @@ interface TerminalProps {
 }
 
 export function Terminal({ wsUrl }: TerminalProps) {
-    const defaultWsUrl = `ws://${window.location.host}/ws/terminal`;
+    // Auto-detect ws:// or wss:// based on page protocol
+    const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const defaultWsUrl = `${wsProtocol}//${window.location.host}/ws/terminal`;
     const finalWsUrl = wsUrl || defaultWsUrl;
     const terminalRef = useRef<HTMLDivElement>(null);
     const xtermRef = useRef<XTerm | null>(null);
