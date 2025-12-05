@@ -54,7 +54,9 @@ pip install xformers --index-url https://download.pytorch.org/whl/cu121
 
 # Install App Requirements
 pip install -r web_app/requirements.txt
-pip install -r sd-scripts/requirements.txt
+
+# Install sd-scripts requirements (filter out local editable installs that cause errors)
+grep -v "^-e \." sd-scripts/requirements.txt | grep -v "^\." | pip install -r /dev/stdin || true
 
 # Install Additional Training Dependencies
 pip install prodigy-plus-schedule-free lycoris-lora requests tqdm
