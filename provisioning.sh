@@ -100,7 +100,7 @@ cleanup() {
 
 trap cleanup EXIT INT TERM
 
-# Wait for portal config
+# Wait for portal config (Vast.ai specific)
 while [ ! -f "$(realpath -q /etc/portal.yaml 2>/dev/null)" ]; do
     echo "Waiting for /etc/portal.yaml..."
     sleep 1
